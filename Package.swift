@@ -4,19 +4,19 @@
 import PackageDescription
 
 let package = Package(
-    name: "Push",
+    name: "Poes",
     platforms: [
         .macOS(.v10_15)
     ],
     products: [
-        .executable(name: "Push", targets: ["Push"])
+        .executable(name: "Poes", targets: ["Poes"])
     ],
     dependencies: [
         .package(url: "https://github.com/apple/swift-package-manager.git", from: "0.1.0")
     ],
     targets: [
-        .target(name: "Push", dependencies: ["PushCore"]),
-        .target(name: "PushCore", dependencies: ["SPMUtility"]),
-        .testTarget(name: "PushTests", dependencies: ["PushCore"]),
+        .target(name: "Poes", dependencies: ["PoesCore"]),
+        .target(name: "PoesCore", dependencies: ["SPMUtility"]),
+        .testTarget(name: "PoesTests", dependencies: ["PoesCore"]),
     ]
 )

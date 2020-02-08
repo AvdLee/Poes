@@ -1,6 +1,6 @@
 //
 //  Payload.swift
-//  PushCore
+//  PoesCore
 //
 //  Created by Antoine van der Lee on 07/02/2020.
 //  Copyright © 2020 AvdLee. All rights reserved.

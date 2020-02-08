@@ -1,7 +1,7 @@
-import PushCore
+import PoesCore
 
 do {
-    try Push.run()
+    try Poes.run()
 } catch {
     print("Pushing failed: \(error)")
 }

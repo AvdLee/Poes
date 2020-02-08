@@ -1,6 +1,6 @@
 //
-//  Push.swift
-//  PushCore
+//  Poes.swift
+//  PoesCore
 //
 //  Created by Antoine van der Lee on 07/02/2020.
 //  Copyright © 2020 AvdLee. All rights reserved.
@@ -9,7 +9,7 @@
 import Foundation
 import SPMUtility
 
-public struct Push: ShellInjectable {
+public struct Poes: ShellInjectable {
     enum Error: Swift.Error, CustomStringConvertible {
         case missingBundleIdentifier
 
@@ -47,15 +47,17 @@ public struct Push: ShellInjectable {
 
         let payload = Payload(title: title, body: body, isMutable: isMutable)
         let jsonData = try JSONEncoder().encode(payload)
-//        let jsonData = try JSONSerialization.data(withJSONObject: payload, options: .prettyPrinted)
+
+        if Log.isVerbose, let object = try? JSONSerialization.jsonObject(with: jsonData, options: []), let jsonString = String(data: try! JSONSerialization.data(withJSONObject: object, options: .prettyPrinted), encoding: .utf8) {
+            Log.debug("Generated payload:\n\n\(jsonString)\n")
+        }
 
         let url = Foundation.URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true).appendingPathComponent("payload.json")
         FileManager.default.createFile(atPath: url.path, contents: jsonData, attributes: nil)
-//        let file = try FileHandle(forWritingTo: url)
-//        file.write(jsonData)
-//        file.closeFile()
 
+        Log.message("Sending push notification...")
         shell.execute(.push(bundleIdentifier: bundleIdentifier, payloadPath: url.path))
+        Log.message("Push notification sent successfully")
     }
 }
 

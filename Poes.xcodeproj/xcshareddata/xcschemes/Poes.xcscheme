@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Push::Push"
-               BuildableName = "Push"
-               BlueprintName = "Push"
-               ReferencedContainer = "container:Push.xcodeproj">
+               BlueprintIdentifier = "Poes::Poes"
+               BuildableName = "Poes"
+               BlueprintName = "Poes"
+               ReferencedContainer = "container:Poes.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,10 +33,10 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Push::PushTests"
-               BuildableName = "PushTests.xctest"
-               BlueprintName = "PushTests"
-               ReferencedContainer = "container:Push.xcodeproj">
+               BlueprintIdentifier = "Poes::PoesTests"
+               BuildableName = "PoesTests.xctest"
+               BlueprintName = "PoesTests"
+               ReferencedContainer = "container:Poes.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "Push::Push"
-            BuildableName = "Push"
-            BlueprintName = "Push"
-            ReferencedContainer = "container:Push.xcodeproj">
+            BlueprintIdentifier = "Poes::Poes"
+            BuildableName = "Poes"
+            BlueprintName = "Poes"
+            ReferencedContainer = "container:Poes.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
