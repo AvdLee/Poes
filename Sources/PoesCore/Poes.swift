@@ -30,10 +30,7 @@ public struct Poes: ShellInjectable {
         _ = parser.add(option: "--verbose", kind: Bool.self, usage: "Show extra logging for debugging purposes")
 
         let bundleIdentifierArgument = parser.add(option: "--bundle-identifier", kind: String.self, usage: "The bundle identifier to push to")
-        let titleArgument = parser.add(option: "--title", shortName: "-t", kind: String.self, usage: "The title of the Push Notification")
-        let bodyArgument = parser.add(option: "--body", shortName: "-b", kind: String.self, usage: "The body of the Push Notification")
-        let isMutableArgument = parser.add(option: "--mutable", shortName: "-m", kind: Bool.self, usage: "Adds the mutable-content key to the payload")
-
+        let payloadFactory = PayloadFactory(parser: parser)
 
         let parsedArguments = try parser.process(arguments: arguments)
 
@@ -41,11 +38,7 @@ public struct Poes: ShellInjectable {
             throw Error.missingBundleIdentifier
         }
 
-        let title = parsedArguments.get(titleArgument) ?? "Default title"
-        let body = parsedArguments.get(bodyArgument) ?? "Default body"
-        let isMutable = parsedArguments.get(isMutableArgument) ?? false
-
-        let payload = Payload(title: title, body: body, isMutable: isMutable)
+        let payload = payloadFactory.make(using: parsedArguments)
         let jsonData = try JSONEncoder().encode(payload)
 
         if Log.isVerbose, let object = try? JSONSerialization.jsonObject(with: jsonData, options: []), let jsonString = String(data: try! JSONSerialization.data(withJSONObject: object, options: .prettyPrinted), encoding: .utf8) {
@@ -67,4 +60,3 @@ private extension ArgumentParser {
         return try parse(Array(arguments.dropFirst()))
     }
 }
-
