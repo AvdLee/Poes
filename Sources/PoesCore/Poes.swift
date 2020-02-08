@@ -60,4 +60,3 @@ private extension ArgumentParser {
         return try parse(Array(arguments.dropFirst()))
     }
 }
-
