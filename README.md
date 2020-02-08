@@ -2,8 +2,9 @@
 A Swift command-line tool to easily send push notifications to the iOS simulator.
 
 <p align="center">
-<img src="https://img.shields.io/badge/language-swift5.1-f48041.svg?style=flat"/>
-<img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=flat"/>
+  <img src="https://app.bitrise.io/app/7178c2e4a5ef4163.svg?token=0q4h8fxMJpf67VnjIEP9xw"/>
+  <img src="https://img.shields.io/badge/language-swift5.1-f48041.svg?style=flat"/>
+  <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=flat"/>
 </p>
 
 Poes helps you with:
