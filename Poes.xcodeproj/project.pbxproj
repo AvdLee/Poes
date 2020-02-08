@@ -21,6 +21,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		501D7D9623EEE9A500481057 /* PayloadFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501D7D9523EEE9A500481057 /* PayloadFactory.swift */; };
+		501D7D9923EEEBC200481057 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501D7D9823EEEBC200481057 /* Mocks.swift */; };
 		OBJ_118 /* Await.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* Await.swift */; };
 		OBJ_119 /* ByteString.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* ByteString.swift */; };
 		OBJ_120 /* CStringArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* CStringArray.swift */; };
@@ -78,7 +80,7 @@
 		OBJ_195 /* SPMLibc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftPM::SPMLibc::Product" /* SPMLibc.framework */; };
 		OBJ_196 /* clibc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftPM::clibc::Product" /* clibc.framework */; };
 		OBJ_206 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
-		OBJ_217 /* PushTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* PushTests.swift */; };
+		OBJ_217 /* PoesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* PoesTests.swift */; };
 		OBJ_220 /* PoesCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Poes::PoesCore::Product" /* PoesCore.framework */; };
 		OBJ_221 /* SPMUtility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftPM::SPMUtility::Product" /* SPMUtility.framework */; };
 		OBJ_222 /* Basic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftPM::Basic::Product" /* Basic.framework */; };
@@ -266,6 +268,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		501D7D9523EEE9A500481057 /* PayloadFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayloadFactory.swift; sourceTree = "<group>"; };
+		501D7D9823EEEBC200481057 /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
 		OBJ_100 /* indexstore_functions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = indexstore_functions.h; sourceTree = "<group>"; };
 		OBJ_101 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; name = module.modulemap; path = "/Users/antoinevanderlee/Documents/GIT-Projects/Eigen/Push/.build/checkouts/swift-package-manager/Sources/clibc/include/module.modulemap"; sourceTree = "<group>"; };
 		OBJ_102 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/antoinevanderlee/Documents/GIT-Projects/Eigen/Push/.build/checkouts/swift-package-manager/Package.swift"; sourceTree = "<group>"; };
@@ -275,7 +279,7 @@
 		OBJ_13 /* Shell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shell.swift; sourceTree = "<group>"; };
 		OBJ_14 /* Payload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payload.swift; sourceTree = "<group>"; };
 		OBJ_15 /* Poes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poes.swift; sourceTree = "<group>"; };
-		OBJ_18 /* PushTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushTests.swift; sourceTree = "<group>"; };
+		OBJ_18 /* PoesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoesTests.swift; sourceTree = "<group>"; };
 		OBJ_23 /* Await.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Await.swift; sourceTree = "<group>"; };
 		OBJ_24 /* ByteString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByteString.swift; sourceTree = "<group>"; };
 		OBJ_25 /* CStringArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CStringArray.swift; sourceTree = "<group>"; };
@@ -431,6 +435,7 @@
 				OBJ_11 /* Helpers */,
 				OBJ_14 /* Payload.swift */,
 				OBJ_15 /* Poes.swift */,
+				501D7D9523EEE9A500481057 /* PayloadFactory.swift */,
 			);
 			name = PoesCore;
 			path = Sources/PoesCore;
@@ -470,7 +475,8 @@
 		OBJ_17 /* PoesTests */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_18 /* PushTests.swift */,
+				OBJ_18 /* PoesTests.swift */,
+				501D7D9823EEEBC200481057 /* Mocks.swift */,
 			);
 			name = PoesTests;
 			path = Tests/PoesTests;
@@ -552,7 +558,7 @@
 			path = ".build/checkouts/swift-package-manager/Sources/Basic";
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -563,7 +569,6 @@
 				OBJ_111 /* LICENSE */,
 				OBJ_112 /* README.md */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_63 /* Build */ = {
@@ -886,7 +891,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_103 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -966,6 +971,7 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_188 /* Log.swift in Sources */,
+				501D7D9623EEE9A500481057 /* PayloadFactory.swift in Sources */,
 				OBJ_189 /* Shell.swift in Sources */,
 				OBJ_190 /* Payload.swift in Sources */,
 				OBJ_191 /* Poes.swift in Sources */,
@@ -984,7 +990,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_217 /* PushTests.swift in Sources */,
+				OBJ_217 /* PoesTests.swift in Sources */,
+				501D7D9923EEEBC200481057 /* Mocks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

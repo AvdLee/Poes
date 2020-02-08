@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Payload: Encodable {
+struct Payload: Codable {
     let aps: APS
 
     init(title: String, body: String, isMutable: Bool) {
@@ -16,7 +16,7 @@ struct Payload: Encodable {
     }
 }
 
-struct APS: Encodable {
+struct APS: Codable {
     enum CodingKeys: String, CodingKey {
         case alert
         case isMutable = "mutable-content"
@@ -26,7 +26,7 @@ struct APS: Encodable {
     let isMutable: Bool
 }
 
-struct Alert: Encodable {
+struct Alert: Codable {
     let title: String
     let body: String
 }
