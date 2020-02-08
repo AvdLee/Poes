@@ -1,0 +1,14 @@
+# Fastlane requirements
+fastlane_version "1.109.0"
+
+import "./../Submodules/WeTransfer-iOS-CI/Fastlane/Fastfile"
+
+desc "Run the tests and prepare for Danger"
+lane :test do |options|
+	spm(command: "generate-xcodeproj")
+	test_project(
+		project_name: "Poes", 
+		scheme: "Poes-Package",
+		device: nil,
+		destination: "platform=macOS")
+end
