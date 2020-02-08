@@ -58,7 +58,19 @@ You can install Poes using Mint as follows:
 $ mint install AvdLee/Poes
 ```
 
+### Development
+- `cd` into the repository
+- run `swift package generate-xcodeproj` (Generates an Xcode project for development)
+- Run the following command to try it out:
+
+```bash
+swift run Poes --help
+```
+
+## FAQ
+
 ### Why is it called "Poes"?
+
 Poes is a Dutch word for a female cat. The pronunciation is the same as "Push" and pushing notifications is what we're doing here!
 
 ### Why is there a `PoesCore` framework?
