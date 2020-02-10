@@ -1,3 +1,2 @@
-### 0.1.0
-
-- Initial setup
+### 1.0.0
+- Initial version ([#1](https://github.com/AvdLee/Poes/pull/1)) via @AvdLee
