@@ -82,3 +82,6 @@ This makes it really easy to eventually create a Mac App with a UI around it ðŸš
 
 ### How do I create a Swift Package myself?
 Check out my blog post [Swift Package framework creation in Xcode](https://www.avanderlee.com/swift/creating-swift-package-manager-framework/). 
+
+### Can I learn more about testing Push Notifications on the iOS simulator?
+Yes! I've written a detailed blog post about this: [Testing push notifications on the iOS simulator](https://www.avanderlee.com/workflow/testing-push-notifications-ios-simulator/)
