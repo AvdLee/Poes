@@ -55,6 +55,13 @@ Sending push notification...
 Push notification sent successfully
 ```
 
+### Installation using [Homebrew](https://brew.sh/)
+you can install it using `brew` like follows:
+```
+brew tap engali94/Poes-Formulae
+brew install Poes
+```
+
 ### Installation using [Mint](https://github.com/yonaskolb/mint)
 You can install Poes using Mint as follows:
 
