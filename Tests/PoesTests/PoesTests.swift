@@ -22,8 +22,9 @@ final class PoesTests: XCTestCase {
         let expectedBundleIdentifier = "com.example.app"
         let title = "Notification title"
         let body = "Notification body"
+        let badge = 2
         let isMutable = true
-        try Poes.run(arguments: ["poes", "--bundle-identifier", expectedBundleIdentifier, "-t", title, "-b", body, "-m"])
+        try Poes.run(arguments: ["poes", "--bundle-identifier", expectedBundleIdentifier, "-t", title, "-b", body, "-m", "--badge", badge])
 
         let command = try XCTUnwrap(MockedShell.executedCommand)
 
@@ -40,6 +41,7 @@ final class PoesTests: XCTestCase {
         XCTAssertEqual(payload.aps.alert.title, title)
         XCTAssertEqual(payload.aps.alert.body, body)
         XCTAssertEqual(payload.aps.isMutable, isMutable)
+        XCTAssertEqual(payload.aps.badge, badge)
 
     }
 }
