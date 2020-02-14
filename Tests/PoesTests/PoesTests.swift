@@ -24,7 +24,7 @@ final class PoesTests: XCTestCase {
         let body = "Notification body"
         let badge = 2
         let isMutable = true
-        try Poes.run(arguments: ["poes", "--bundle-identifier", expectedBundleIdentifier, "-t", title, "-b", body, "-m", "--badge", badge])
+        try Poes.run(arguments: ["poes", "--bundle-identifier", expectedBundleIdentifier, "-t", title, "-b", body, "-m", "--badge", "\(badge)"])
 
         let command = try XCTUnwrap(MockedShell.executedCommand)
 
