@@ -31,6 +31,7 @@ OPTIONS:
   --bundle-identifier   The bundle identifier to push to
   --mutable, -m         Adds the mutable-content key to the payload
   --title, -t           The title of the Push Notification
+  --badge               The number to display in a badge on your app’s icon
   --verbose             Show extra logging for debugging purposes
   --help                Display available options
 ```
