@@ -16,17 +16,17 @@ struct Send: ParsableCommand, ShellInjectable {
     @Argument(help: "The bundle identifier of the app to push to")
     private var bundleIdentifier: String
 
-    @Option(default: "Default Title", help: "The title of the Push notification")
+    @Option(name: .shortAndLong, default: "Default Title", help: "The title of the Push notification")
     private var title: String
 
-    @Option(default: "Default Body", help: "The body of the Push notification")
+    @Option(name: .shortAndLong, default: "Default Body", help: "The body of the Push notification")
     private var body: String
 
-    @Option(default: false, help: "Adds the mutable-content key to the payload")
-    private var isMutable: Bool
-
-    @Option(help: "The number to display in a badge on your app’s icon")
+    @Option(name: .shortAndLong, help: "The number to display in a badge on your app’s icon")
     private var badge: Int?
+    
+    @Flag(name: .shortAndLong, help: "Adds the mutable-content key to the payload")
+    private var isMutable: Bool
 
     func run() throws {
         let payload = Payload(title: title, body: body, isMutable: isMutable, badge: badge)

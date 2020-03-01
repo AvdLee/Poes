@@ -17,14 +17,18 @@ final class PoesTests: XCTestCase {
         ShellInjector.shell = MockedShell.self
     }
 
-    /// It should correctly generate a JSON payload.
-    func testPayloadGeneration() throws {
+    /// It should correctly generate a JSON payload for sending push notifications.
+    func testSendCommand() throws {
         let expectedBundleIdentifier = "com.example.app"
         let title = "Notification title"
         let body = "Notification body"
         let badge = 2
         let isMutable = true
-        try Poes.run(arguments: ["poes", "--bundle-identifier", expectedBundleIdentifier, "-t", title, "-b", body, "-m", "--badge", "\(badge)"])
+
+        let arguments = ["send", expectedBundleIdentifier, "--title", title, "--body", body, "--badge", "\(badge)", "--is-mutable"]
+
+        let poesCommand = try Poes.parseAsRoot(arguments)
+        try poesCommand.run()
 
         let command = try XCTUnwrap(MockedShell.executedCommand)
 
