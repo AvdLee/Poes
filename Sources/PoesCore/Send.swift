@@ -23,8 +23,11 @@ struct Send: ParsableCommand, ShellInjectable {
     @Option(default: false, help: "Adds the mutable-content key to the payload")
     private var isMutable: Bool
 
+    @Option(help: "The number to display in a badge on your app’s icon")
+    private var badge: Int?
+
     func run() throws {
-        let payload = Payload(title: title, body: body, isMutable: isMutable)
+        let payload = Payload(title: title, body: body, isMutable: isMutable, badge: badge)
         let jsonData = try JSONEncoder().encode(payload)
 
         if Log.isVerbose, let object = try? JSONSerialization.jsonObject(with: jsonData, options: []), let jsonString = String(data: try! JSONSerialization.data(withJSONObject: object, options: .prettyPrinted), encoding: .utf8) {
