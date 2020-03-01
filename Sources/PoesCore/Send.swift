@@ -28,7 +28,12 @@ struct Send: ParsableCommand, ShellInjectable {
     @Flag(name: .shortAndLong, help: "Adds the mutable-content key to the payload")
     private var isMutable: Bool
 
+    @Flag(name: .long, help: "Show extra logging for debugging purposes")
+    private var verbose: Bool
+
     func run() throws {
+        Log.isVerbose = verbose
+        
         let payload = Payload(title: title, body: body, isMutable: isMutable, badge: badge)
         let jsonData = try JSONEncoder().encode(payload)
 
