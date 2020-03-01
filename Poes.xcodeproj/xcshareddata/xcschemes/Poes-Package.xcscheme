@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Poes::PoesCore"
-               BuildableName = "PoesCore.framework"
-               BlueprintName = "PoesCore"
+               BlueprintIdentifier = "Poes::Poes"
+               BuildableName = "Poes"
+               BlueprintName = "Poes"
                ReferencedContainer = "container:Poes.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,9 +28,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Poes::Poes"
-               BuildableName = "Poes"
-               BlueprintName = "Poes"
+               BlueprintIdentifier = "Poes::PoesCore"
+               BuildableName = "PoesCore.framework"
+               BlueprintName = "PoesCore"
                ReferencedContainer = "container:Poes.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -43,16 +43,6 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       codeCoverageEnabled = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Poes::PoesTests"
-               BuildableName = "PoesTests.xctest"
-               BlueprintName = "PoesTests"
-               ReferencedContainer = "container:Poes.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
