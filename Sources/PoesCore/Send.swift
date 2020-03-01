@@ -11,6 +11,8 @@ import ArgumentParser
 
 struct Send: ParsableCommand, ShellInjectable {
 
+    public static let configuration = CommandConfiguration(abstract: "Send a push notification to an app installed on the iOS Simulator")
+
     @Argument(help: "The bundle identifier of the app to push to")
     private var bundleIdentifier: String
 
