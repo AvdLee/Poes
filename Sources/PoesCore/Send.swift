@@ -33,7 +33,7 @@ struct Send: ParsableCommand, ShellInjectable {
 
     func run() throws {
         Log.isVerbose = verbose
-        
+
         let payload = Payload(title: title, body: body, isMutable: isMutable, badge: badge)
         let jsonData = try JSONEncoder().encode(payload)
 
