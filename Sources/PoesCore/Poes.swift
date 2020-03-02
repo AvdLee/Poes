@@ -7,56 +7,12 @@
 //
 
 import Foundation
-import SPMUtility
+import ArgumentParser
 
-public struct Poes: ShellInjectable {
-    enum Error: Swift.Error, CustomStringConvertible {
-        case missingBundleIdentifier
+public struct Poes: ParsableCommand {
+    public static let configuration = CommandConfiguration(
+        abstract: "A Swift command-line tool to easily test push notifications to the iOS simulator",
+        subcommands: [Send.self])
 
-        var description: String {
-            switch self {
-            case .missingBundleIdentifier:
-                return "Pass in the bundle identifier with the --bundle-identifier argument"
-            }
-        }
-    }
-
-    static var usage: String = "<options>"
-    static var overview: String = "A Swift command-line tool to easily send push notifications to the iOS simulator"
-
-    public static func run(arguments: [String] = ProcessInfo.processInfo.arguments) throws {
-        Log.isVerbose = arguments.contains("--verbose")
-        let parser = ArgumentParser(usage: usage, overview: overview)
-        _ = parser.add(option: "--verbose", kind: Bool.self, usage: "Show extra logging for debugging purposes")
-
-        let bundleIdentifierArgument = parser.add(option: "--bundle-identifier", kind: String.self, usage: "The bundle identifier to push to")
-        let payloadFactory = PayloadFactory(parser: parser)
-
-        let parsedArguments = try parser.process(arguments: arguments)
-
-        guard let bundleIdentifier = parsedArguments.get(bundleIdentifierArgument) else {
-            throw Error.missingBundleIdentifier
-        }
-
-        let payload = payloadFactory.make(using: parsedArguments)
-        let jsonData = try JSONEncoder().encode(payload)
-
-        if Log.isVerbose, let object = try? JSONSerialization.jsonObject(with: jsonData, options: []), let jsonString = String(data: try! JSONSerialization.data(withJSONObject: object, options: .prettyPrinted), encoding: .utf8) {
-            Log.debug("Generated payload:\n\n\(jsonString)\n")
-        }
-
-        let url = Foundation.URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true).appendingPathComponent("payload.json")
-        FileManager.default.createFile(atPath: url.path, contents: jsonData, attributes: nil)
-
-        Log.message("Sending push notification...")
-        shell.execute(.push(bundleIdentifier: bundleIdentifier, payloadPath: url.path))
-        Log.message("Push notification sent successfully")
-    }
-}
-
-private extension ArgumentParser {
-    @discardableResult func process(arguments: [String]) throws -> ArgumentParser.Result {
-        // We drop the first argument as this is always the execution path. In our case: "gitbuddy"
-        return try parse(Array(arguments.dropFirst()))
-    }
+    public init() { }
 }

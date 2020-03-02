@@ -20,26 +20,48 @@ Poes helps you with:
 - Xcode 11.4 beta 1 and up
 
 ### Usage
-```
-$ Poes --help
-OVERVIEW: A Swift command-line tool to easily send push notifications to the iOS simulator
 
-USAGE: Poes <options>
+```
+$ poes --help
+OVERVIEW: A Swift command-line tool to easily test push notifications to the
+iOS simulator
+
+USAGE: poes <subcommand>
 
 OPTIONS:
-  --body, -b            The body of the Push Notification
-  --bundle-identifier   The bundle identifier to push to
-  --mutable, -m         Adds the mutable-content key to the payload
-  --title, -t           The title of the Push Notification
-  --badge               The number to display in a badge on your app’s icon
-  --verbose             Show extra logging for debugging purposes
-  --help                Display available options
+  -h, --help              Show help information.
+
+SUBCOMMANDS:
+  send                    Send a push notification to an app installed on the
+                          iOS Simulator
+```
+
+
+
+```
+$ poes send --help
+OVERVIEW: Send a push notification to an app installed on the iOS Simulator
+
+USAGE: poes send <bundle-identifier> [--title <title>] [--body <body>] [--badge <badge>] [--is-mutable] [--verbose]
+
+ARGUMENTS:
+  <bundle-identifier>     The bundle identifier of the app to push to 
+
+OPTIONS:
+  -t, --title <title>     The title of the Push notification (default: Default
+                          Title)
+  -b, --body <body>       The body of the Push notification (default: Default
+                          Body)
+  -b, --badge <badge>     The number to display in a badge on your app’s icon 
+  -i, --is-mutable        Adds the mutable-content key to the payload 
+  --verbose               Show extra logging for debugging purposes 
+  -h, --help              Show help information.
 ```
 
 The bundle identifier is mandatory, all others have a default value. The following command can be enough to send out a notification:
 
 ```
-$ Poes --bundle-identifier com.wetransfer.app --verbose
+$ poes send com.wetransfer.app --verbose
 Generated payload:
 
 {
