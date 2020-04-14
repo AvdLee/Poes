@@ -41,11 +41,13 @@ struct Send: ParsableCommand, ShellInjectable {
             Log.debug("Generated payload:\n\n\(jsonString)\n")
         }
 
-        let url = Foundation.URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true).appendingPathComponent("payload.json")
-        FileManager.default.createFile(atPath: url.path, contents: jsonData, attributes: nil)
+        let tempUrl = NSTemporaryDirectory()
+        let payloadUrl = Foundation.URL(fileURLWithPath: tempUrl, isDirectory: true).appendingPathComponent("payload.json")
+        FileManager.default.createFile(atPath: payloadUrl.path, contents: jsonData, attributes: nil)
 
         Log.message("Sending push notification...")
-        Self.shell.execute(.push(bundleIdentifier: bundleIdentifier, payloadPath: url.path))
+        Self.shell.execute(.push(bundleIdentifier: bundleIdentifier, payloadPath: payloadUrl.path))
         Log.message("Push notification sent successfully")
+        try FileManager.default.removeItem(at: payloadUrl)
     }
 }
