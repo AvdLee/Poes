@@ -48,4 +48,48 @@ final class PoesTests: XCTestCase {
         XCTAssertEqual(payload.aps.badge, badge)
 
     }
+
+    /// It should generate an .apns file with the correct structure.
+    func testGenerateCommand() throws {
+        let bundleIdentifier = "com.example.app"
+         let title = "Generated title"
+        let body = "Generated body"
+ let badge = 5
+         let outputPath = NSTemporaryDirectory() + "test_payload.apns"
+
+        defer {
+            try? FileManager.default.removeItem(atPath: outputPath)
+        }
+
+        let arguments = [
+            "generate", bundleIdentifier,
+            "--title", title,
+            "--body", body,
+            "--badge", "\(badge)",
+            "--is-mutable",
+            "--output", outputPath
+        ]
+
+        let poesCommand = try Poes.parseAsRoot(arguments)
+        try poesCommand.run()
+
+        let jsonData = try Data(contentsOf: URL(fileURLWithPath: outputPath))
+        let apnsFile = try JSONDecoder().decode(APNSFile.self, from: jsonData)
+        XCTAssertEqual(apnsFile.simulatorTargetBundle, bundleIdentifier)
+        XCTAssertEqual(apnsFile.aps.alert.title, title)
+        XCTAssertEqual(apnsFile.aps.alert.body, body)
+        XCTAssertEqual(apnsFile.aps.badge, badge)
+        XCTAssertTrue(apnsFile.aps.isMutable)
+    }
+
+    /// It should reject output files without .apns extension.
+    func testGenerateCommandRejectsInvalidExtension() throws {
+        let arguments = [
+            "generate", "com.example.app",
+            "--output", "payload.json"
+        ]
+
+        let poesCommand = try Poes.parseAsRoot(arguments)
+        XCTAssertThrowsError(try poesCommand.run())
+    }
 }

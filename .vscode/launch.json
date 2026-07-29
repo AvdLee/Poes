@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:Poes}",
+            "name": "Debug Poes",
+            "target": "Poes",
+            "configuration": "debug",
+            "preLaunchTask": "swift: Build Debug Poes"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:Poes}",
+            "name": "Release Poes",
+            "target": "Poes",
+            "configuration": "release",
+            "preLaunchTask": "swift: Build Release Poes"
+        }
+    ]
+}

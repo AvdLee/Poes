@@ -12,7 +12,7 @@ import ArgumentParser
 public struct Poes: ParsableCommand {
     public static let configuration = CommandConfiguration(
         abstract: "A Swift command-line tool to easily test push notifications to the iOS simulator",
-        subcommands: [Send.self])
+        subcommands: [Send.self, Generate.self])
 
     public init() { }
 }
